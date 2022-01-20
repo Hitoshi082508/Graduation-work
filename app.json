@@ -27,6 +27,16 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "firebase": {
+        "apiKey": "AIzaSyCX5wdZ2VpSEazJ0-sEd1ZcazmVeNfZBHA",
+        "authDomain": "testdayo-784a6.firebaseapp.com",
+        "projectId": "testdayo-784a6",
+        "storageBucket": "testdayo-784a6.appspot.com",
+        "messagingSenderId": "209245374343",
+        "appId": "1:209245374343:web:eddec2e319ed6f3b763522"
+      }
     }
   }
 }
