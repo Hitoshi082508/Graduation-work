@@ -134,8 +134,8 @@ const styles = StyleSheet.create({
   textContainer: {
     display: 'flex',
     alignItems: 'center',
-    marginTop: 50,
-    marginBottom: 20
+    marginTop: 100,
+    marginBottom: 30
   },
   text: {
     fontSize: 18,
@@ -143,8 +143,8 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     position: 'absolute',
-    marginLeft: '33%',
-    marginRight: '33%',
+    marginLeft: '32%',
+    marginRight: '32%',
   },
   image: {
     width: 150,
