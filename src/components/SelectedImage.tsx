@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, Alert } from 'react-native'
 import { Accelerometer } from 'expo-sensors';
 import { db } from '../lib/firebase';
 import { format } from 'date-fns';
+import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 type Props = {
   text: string
   selectedImage: string
@@ -16,6 +17,16 @@ export const SelectedImage: React.FC<Props> = ({ text, selectedImage, setOpen, s
     x: 0,
     y: 0,
     z: 0,
+  });
+
+  const top = useSharedValue(200);
+  const opacity = useSharedValue(1);
+
+  const style = useAnimatedStyle(() => {
+    return {
+      opacity: opacity.value,
+      top: top.value
+    };
   });
 
   const _subscribe = () => {
@@ -51,13 +62,20 @@ export const SelectedImage: React.FC<Props> = ({ text, selectedImage, setOpen, s
       created_at: format(new Date(), 'MM/dd HH:mm'),
       selectedImage: selectedImage
     });
+    opacity.value = withTiming(0, { duration: 4500 });
+    top.value = withTiming(-250, {duration: 5000});
+    console.log("動いてる")
+  }
+
+  const init = () => {
+    setOpen(false);
+    setText('');
+    setStep(1);
   }
 
   if (round(x) > 0.70) {
     submit();
-    setOpen(false);
-    setText('');
-    setStep(1);
+    setTimeout(init, 4700);
   }
 
   return (
@@ -67,9 +85,9 @@ export const SelectedImage: React.FC<Props> = ({ text, selectedImage, setOpen, s
         <Text style={styles.text}>送信いたします</Text>
         <Text style={styles.text}>スマートフォンを上下に振ってください</Text>
       </View>
-      <View style={styles.imageContainer}>
+      <Animated.View style={[styles.imageContainer, style]}>
         <Image style={styles.image} source={require('../../assets/image1.png')} />
-      </View>
+      </Animated.View>
     </>
   )
 }
@@ -85,10 +103,9 @@ const styles = StyleSheet.create({
     fontFamily: 'AppleSDGothicNeo-Light'
   },
   imageContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 70
+    position: 'absolute',
+    marginLeft: '33%',
+    marginRight: '33%',
   },
   image: {
     width: 150,
