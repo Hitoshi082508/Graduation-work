@@ -9,7 +9,7 @@ type Props = {
 }
 export const ModalBase: React.FC<Props> = ({ open, text, setOpen, setText }) => {
   const [step, setStep] = useState(1);
-  const [selectedImage, setSelectedImage] = useState('');
+  const [selectedImage, setSelectedImage] = useState<number>();
   return (
     <Modal
       animationType="slide"
@@ -25,41 +25,41 @@ export const ModalBase: React.FC<Props> = ({ open, text, setOpen, setText }) => 
                 <Text style={styles.text}>お花を選んでください</Text>
               </View>
               <View style={styles.imageContainer}>
-                <TouchableOpacity onPress={() => {setSelectedImage('1'); setStep(2);}}>
-                  <Image style={styles.image} source={require('../../assets/image1.png')} />
+                <TouchableOpacity onPress={() => {setSelectedImage(1); setStep(2);}}>
+                  <Image style={styles.image} source={require('../../assets/cc1111.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {setSelectedImage('2'); setStep(2);}}>
-                  <Image style={styles.image} source={require('../../assets/image1.png')} />
+                <TouchableOpacity onPress={() => {setSelectedImage(2); setStep(2);}}>
+                  <Image style={styles.image} source={require('../../assets/e05a00.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {setSelectedImage('3'); setStep(2);}}>
-                  <Image style={styles.image} source={require('../../assets/image1.png')} />
+                <TouchableOpacity onPress={() => {setSelectedImage(3); setStep(2);}}>
+                  <Image style={styles.image} source={require('../../assets/bc9d19.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {setSelectedImage('4'); setStep(2);}}>
-                  <Image style={styles.image} source={require('../../assets/image1.png')} />
+                <TouchableOpacity onPress={() => {setSelectedImage(4); setStep(2);}}>
+                  <Image style={styles.image} source={require('../../assets/5ea82d.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {setSelectedImage('5'); setStep(2);}}>
-                  <Image style={styles.image} source={require('../../assets/image1.png')} />
+                <TouchableOpacity onPress={() => {setSelectedImage(5); setStep(2);}}>
+                  <Image style={styles.image} source={require('../../assets/157a00.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {setSelectedImage('6'); setStep(2);}}>
-                  <Image style={styles.image} source={require('../../assets/image1.png')} />
+                <TouchableOpacity onPress={() => {setSelectedImage(6); setStep(2);}}>
+                  <Image style={styles.image} source={require('../../assets/2db2d6.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {setSelectedImage('7'); setStep(2);}}>
-                  <Image style={styles.image} source={require('../../assets/image1.png')} />
+                <TouchableOpacity onPress={() => {setSelectedImage(7); setStep(2);}}>
+                  <Image style={styles.image} source={require('../../assets/2c44b7.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {setSelectedImage('8'); setStep(2);}}>
-                  <Image style={styles.image} source={require('../../assets/image1.png')} />
+                <TouchableOpacity onPress={() => {setSelectedImage(8); setStep(2);}}>
+                  <Image style={styles.image} source={require('../../assets/c93176.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {setSelectedImage('9'); setStep(2);}}>
-                  <Image style={styles.image} source={require('../../assets/image1.png')} />
+                <TouchableOpacity onPress={() => {setSelectedImage(9); setStep(2);}}>
+                  <Image style={styles.image} source={require('../../assets/600ea0.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {setSelectedImage('10'); setStep(2);}}>
-                  <Image style={styles.image} source={require('../../assets/image1.png')} />
+                <TouchableOpacity onPress={() => {setSelectedImage(10); setStep(2);}}>
+                  <Image style={styles.image} source={require('../../assets/1b227f.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {setSelectedImage('11'); setStep(2);}}>
-                  <Image style={styles.image} source={require('../../assets/image1.png')} />
+                <TouchableOpacity onPress={() => {setSelectedImage(11); setStep(2);}}>
+                  <Image style={styles.image} source={require('../../assets/000000.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {setSelectedImage('12'); setStep(2);}}>
-                  <Image style={styles.image} source={require('../../assets/image1.png')} />
+                <TouchableOpacity onPress={() => {setSelectedImage(12); setStep(2);}}>
+                  <Image style={styles.image} source={require('../../assets/ffffff.png')} />
                 </TouchableOpacity>
               </View>
             </>

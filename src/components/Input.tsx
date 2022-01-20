@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, KeyboardAvoidingView, Platform } from 'react-native'
+import { StyleSheet, Image, TextInput, TouchableOpacity, View, KeyboardAvoidingView, Platform } from 'react-native'
 type Props = {
   onChange: (v: string) => void;
   onClick: () => void;
@@ -18,7 +18,7 @@ export const Input: React.FC<Props> = ({ onChange, onClick, text }) => {
           placeholder='Aa'
         />
         <TouchableOpacity onPress={onClick}>
-          <Text style={styles.text}>🌼</Text>
+          <Image style={styles.image} source={require('../../assets/flower.png')} />
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
@@ -45,5 +45,11 @@ const styles = StyleSheet.create({
     fontSize: 25,
     marginTop: 5,
     marginLeft: 10
+  },
+  image: {
+    width: 35,
+    height: 35,
+    marginLeft: 10,
+    marginTop: 2
   }
 });

@@ -6,13 +6,14 @@ import { format } from 'date-fns';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 type Props = {
   text: string
-  selectedImage: string
+  selectedImage: number | undefined
   setOpen: (v: boolean) => void
   setText: (v: string) => void
   setStep: (v: number) => void
 }
 export const SelectedImage: React.FC<Props> = ({ text, selectedImage, setOpen, setText, setStep }) => {
   const [subscription, setSubscription] = useState(null);
+  const [ok, setOk] = useState(true);
   const [data, setData] = useState({
     x: 0,
     y: 0,
@@ -56,15 +57,16 @@ export const SelectedImage: React.FC<Props> = ({ text, selectedImage, setOpen, s
     return Math.floor(n * 100) / 100;
   }
 
-  const submit = () => {
-    db.collection('posts').doc().set({
+  const submit = async () => {
+    setOk(false);
+    await db.collection('posts').doc().set({
       text: text,
       created_at: format(new Date(), 'MM/dd HH:mm'),
       selectedImage: selectedImage
     });
     opacity.value = withTiming(0, { duration: 4500 });
     top.value = withTiming(-250, {duration: 5000});
-    console.log("動いてる")
+    setOk(true);
   }
 
   const init = () => {
@@ -73,9 +75,11 @@ export const SelectedImage: React.FC<Props> = ({ text, selectedImage, setOpen, s
     setStep(1);
   }
 
-  if (round(x) > 0.70) {
-    submit();
-    setTimeout(init, 4700);
+  if (ok) {
+    if (round(x) > 0.80) {
+      submit();
+      setTimeout(init, 4700);
+    }
   }
 
   return (
@@ -86,7 +90,42 @@ export const SelectedImage: React.FC<Props> = ({ text, selectedImage, setOpen, s
         <Text style={styles.text}>スマートフォンを上下に振ってください</Text>
       </View>
       <Animated.View style={[styles.imageContainer, style]}>
-        <Image style={styles.image} source={require('../../assets/image1.png')} />
+        {selectedImage === 1 && (
+          <Image style={styles.image} source={require('../../assets/cc1111.png')} />
+        )}
+        {selectedImage === 2 && (
+          <Image style={styles.image} source={require('../../assets/e05a00.png')} />
+        )}
+        {selectedImage === 3 && (
+          <Image style={styles.image} source={require('../../assets/bc9d19.png')} />
+        )}
+        {selectedImage === 4 && (
+          <Image style={styles.image} source={require('../../assets/5ea82d.png')} />
+        )}
+        {selectedImage === 5 && (
+          <Image style={styles.image} source={require('../../assets/157a00.png')} />
+        )}
+        {selectedImage === 6 && (
+          <Image style={styles.image} source={require('../../assets/2db2d6.png')} />
+        )}
+        {selectedImage === 7 && (
+          <Image style={styles.image} source={require('../../assets/2c44b7.png')} />
+        )}
+        {selectedImage === 8 && (
+          <Image style={styles.image} source={require('../../assets/c93176.png')} />
+        )}
+        {selectedImage === 9 && (
+          <Image style={styles.image} source={require('../../assets/600ea0.png')} />
+        )}
+        {selectedImage === 10 && (
+          <Image style={styles.image} source={require('../../assets/1b227f.png')} />
+        )}
+        {selectedImage === 11 && (
+          <Image style={styles.image} source={require('../../assets/000000.png')} />
+        )}
+        {selectedImage === 12 && (
+          <Image style={styles.image} source={require('../../assets/ffffff.png')} />
+        )}
       </Animated.View>
     </>
   )

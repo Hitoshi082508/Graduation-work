@@ -1,11 +1,11 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Image, View } from 'react-native'
 type Props = {
 }
 export const Header: React.FC<Props> = ({}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Huruhuru</Text>
+      <Image style={styles.image} source={require('../../assets/logo.png')} />
     </View>
   )
 }
@@ -18,11 +18,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end'
   },
-  text: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 20,
-    marginBottom: 10,
-    letterSpacing: 1
+  image: {
+    width: 125,
+    height: 40,
+    marginBottom: 10
   }
 });
