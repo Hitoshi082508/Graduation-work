@@ -18,7 +18,7 @@ export const Input: React.FC<Props> = ({ onChange, onClick, text }) => {
           placeholder='Aa'
         />
         <TouchableOpacity onPress={onClick}>
-          <Image style={styles.image} source={require('../../assets/flower.png')} />
+          <Image style={styles.image} source={require('../../assets/submit.png')} />
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
@@ -47,9 +47,9 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
   image: {
-    width: 35,
-    height: 35,
-    marginLeft: 10,
-    marginTop: 2
+    width: 50,
+    height: 50,
+    marginTop: -6,
+    marginLeft: 8
   }
 });
