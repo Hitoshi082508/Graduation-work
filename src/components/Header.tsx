@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   container: {
     height: 90,
     width: '100%',
-    backgroundColor: '#333',
+    backgroundColor: '#222222',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end'
@@ -21,6 +21,6 @@ const styles = StyleSheet.create({
   image: {
     width: 125,
     height: 40,
-    marginBottom: 10
+    marginBottom: 3
   }
 });
